@@ -2,7 +2,7 @@ mod concepts;
 
 use concepts::generics::{largest_char, largest_generic, largest_i32, PointA, PointB, PointC};
 
-use crate::concepts::traits::{Tweet, Summary};
+use crate::concepts::traits::{Tweet, Summary, notify};
 
 fn main() {
     // ---------------------------------------------------------------------------
@@ -59,6 +59,8 @@ fn main() {
     };
 
     println!("1 new tweet : {}", tweet.summarize());
+
+    notify(&tweet);
 
     // Traits
     // ---------------------------------------------------------------------------
