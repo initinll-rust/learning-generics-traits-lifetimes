@@ -2,7 +2,7 @@ mod concepts;
 
 use concepts::generics::{largest_char, largest_generic, largest_i32, PointA, PointB, PointC};
 
-use crate::concepts::traits::{Tweet, Summary, notify};
+use crate::concepts::traits::{Tweet, Summary, notify1, notify2, returns_summarizable};
 
 fn main() {
     // ---------------------------------------------------------------------------
@@ -60,7 +60,13 @@ fn main() {
 
     println!("1 new tweet : {}", tweet.summarize());
 
-    notify(&tweet);
+    // Traits as Parameters
+    notify1(&tweet);
+
+    // Trait Bound Syntax
+    notify2::<Tweet>(&tweet);
+
+    let t = returns_summarizable();
 
     // Traits
     // ---------------------------------------------------------------------------
