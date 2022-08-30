@@ -2,7 +2,12 @@ mod concepts;
 
 use concepts::generics::{largest_char, largest_generic, largest_i32, PointA, PointB, PointC};
 
+use crate::concepts::traits::{Tweet, Summary};
+
 fn main() {
+    // ---------------------------------------------------------------------------
+    // Generics
+
     let num1_list = vec![1, 2, 3, 4, 5];
     let char_list = vec!['y', 'm', 'a', 'q'];
     let num2_list = vec![10, 20, 30, 40, 50];
@@ -41,4 +46,20 @@ fn main() {
     println!("point5 - {:?}", point5);
 
     println!("Again point3 - {:?} & point4 - {:?}", point3, point4);
+
+    // Generics
+    // ---------------------------------------------------------------------------
+    // Traits
+
+    let tweet = Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from("of course, as you probably already know, people"),
+        reply: false,
+        retweet: false
+    };
+
+    println!("1 new tweet : {}", tweet.summarize());
+
+    // Traits
+    // ---------------------------------------------------------------------------
 }
