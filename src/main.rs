@@ -4,7 +4,10 @@ use concepts::generics::{largest_char, largest_generic, largest_i32, PointA, Poi
 
 use crate::concepts::traits::{Tweet, Summary, notify1, notify2, returns_summarizable};
 
+use crate::concepts::lifetimes::{longest, ImportantExcerpt};
+
 fn main() {
+
     // ---------------------------------------------------------------------------
     // Generics
 
@@ -49,6 +52,8 @@ fn main() {
 
     // Generics
     // ---------------------------------------------------------------------------
+
+    // ---------------------------------------------------------------------------
     // Traits
 
     let tweet = Tweet {
@@ -69,5 +74,24 @@ fn main() {
     let t = returns_summarizable();
 
     // Traits
+    // ---------------------------------------------------------------------------
+
+    // ---------------------------------------------------------------------------
+    // Lifetimes
+
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
+
+    let result = longest(string1.as_str(), string2);
+    println!("The longest string is {}", result);
+
+    let novel = String::from("Call me Ishmael. Some years ago...");
+    let first_sentence = novel.split('.').next().expect("Could not find a '.'");
+    let i = ImportantExcerpt {
+        part: first_sentence,
+    };
+    println!("{:?}", i);
+
+    // Lifetimes
     // ---------------------------------------------------------------------------
 }
